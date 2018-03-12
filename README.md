@@ -1,5 +1,15 @@
 # Project Setup iOS
 
+This document will provide instructions on how to setup a iOS Project so that Unit and UI test run inside Gitlab-CI.
+
+Instructions on how to setup Gitlab and a Gitlab-Runner can be found here:
+
+https://github.com/smoca-ag/ci-demo-app-readme
+
+Setup for Android:
+
+https://github.com/smoca-ag/ci-demo-app-android
+
 In order for this to work a fastlane match certificates repository needs to be set up. You also need to be logged in with a developer account inside of Xcode. This developer account must be part of a valid team. Lastly you will need a developer provisioning profile for the App ID "*".
 
 1. Project configuration in Xcode
