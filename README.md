@@ -107,7 +107,7 @@ In order for this to work a fastlane match certificates repository needs to be s
    tests:
      stage: test
      tags:
-       - android
+       - ios
      script:
        - bundle exec fastlane test
    ```
