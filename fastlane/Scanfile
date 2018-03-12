@@ -10,4 +10,4 @@ derived_data_path "./derivedData"
 
 clean true
 
-scheme "Demo-iOS"
+scheme "scheme_name"
