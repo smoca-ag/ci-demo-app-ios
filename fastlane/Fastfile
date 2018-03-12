@@ -1,0 +1,54 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+# Command to read udids of connected devices and write it into a file from:
+# https://gist.github.com/emilstahl/00cc0c87bff5674e26ed
+# Command:
+# system_profiler SPUSBDataType | sed -n -e '/iPad/,/Serial/p' -e '/iPhone/,/Serial/p' | grep "Serial Number:" | awk -F ": " '{print $2}' > udids
+
+default_platform(:ios)
+
+platform :ios do
+
+	desc "Runs tests on all devices"
+	lane :test do
+
+		match(readonly: true)
+
+		# Gets udids of connected iOS devices and writes it to array.
+		sh("system_profiler SPUSBDataType | sed -n -e '/iPad/,/Serial/p' -e '/iPhone/,/Serial/p' | grep \"Serial Number:\" | awk -F \": \" '{print $2}' > udids.temp")
+		udids = File.readlines('./udids.temp')
+
+		# Prints the number of connected devices to the console.
+		puts("INFO /// Number of connected iOS devices: " + udids.count.to_s)
+
+		first_destination_string = 'platform=iOS,id=' + udids.shift
+		first_destination_string = first_destination_string.gsub("\n","")
+
+		other_destinations_string = ""
+
+		# Generates string from all udids that remain.
+		udids.each { |udid|
+			other_destinations_string += "-destination " + "'platform=iOS,id=" + udid + "' "
+		}
+
+		other_destinations_string = other_destinations_string.gsub("\n", "")
+
+		# The scan destination parameter only allows for one destination. This is annoying
+		# because we want to test on multiple devices (NOT simulators). To work around this
+		# limitation a destination string gets generated from the udids of all connected
+		# iOS devices, wich gets added to the "xcodebuild" command "scan" generates for us.
+		scan(destination: first_destination_string, xcargs: other_destinations_string)
+
+		sh("rm ./udids.temp")
+	end
+
+end

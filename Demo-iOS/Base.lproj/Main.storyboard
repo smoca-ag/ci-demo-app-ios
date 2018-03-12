@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Demo_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gewicht (in kg)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hy3-Pi-Km4">
+                                <rect key="frame" x="16" y="36" width="116" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grösse (in cm)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BE6-Xd-0LH">
+                                <rect key="frame" x="16" y="111" width="112" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o57-BQ-k3G">
+                                <rect key="frame" x="16" y="186" width="74" height="30"/>
+                                <state key="normal" title="Berechnen"/>
+                                <connections>
+                                    <action selector="calculateAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cOZ-x6-22c"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Ng-c5-RCg">
+                                <rect key="frame" x="16" y="65" width="180" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="PAu-De-Xgg"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RWL-eG-yco">
+                                <rect key="frame" x="16" y="140" width="180" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="6J2-d5-lH4"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(bmiOutput)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Eu-Iy-Nb6">
+                                <rect key="frame" x="67" y="232" width="94" height="21"/>
+                                <accessibility key="accessibilityConfiguration" identifier="bmiOutputLabel"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BMI:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xbb-LR-aLV">
+                                <rect key="frame" x="16" y="232" width="35" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="hy3-Pi-Km4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="8Ce-bd-Ppy"/>
+                            <constraint firstItem="o57-BQ-k3G" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="D64-gB-6u4"/>
+                            <constraint firstItem="Xbb-LR-aLV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Dx5-af-X3I"/>
+                            <constraint firstItem="5Eu-Iy-Nb6" firstAttribute="leading" secondItem="Xbb-LR-aLV" secondAttribute="trailing" constant="16" id="Eo3-2f-aq2"/>
+                            <constraint firstItem="Xbb-LR-aLV" firstAttribute="top" secondItem="o57-BQ-k3G" secondAttribute="bottom" constant="16" id="F1E-K5-ftG"/>
+                            <constraint firstItem="1Ng-c5-RCg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="F6e-2s-bjn"/>
+                            <constraint firstItem="BE6-Xd-0LH" firstAttribute="top" secondItem="1Ng-c5-RCg" secondAttribute="bottom" constant="16" id="J6N-VD-gip"/>
+                            <constraint firstItem="o57-BQ-k3G" firstAttribute="top" secondItem="RWL-eG-yco" secondAttribute="bottom" constant="16" id="LCz-ku-i7H"/>
+                            <constraint firstItem="BE6-Xd-0LH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="VfE-Hu-DGf"/>
+                            <constraint firstItem="RWL-eG-yco" firstAttribute="top" secondItem="BE6-Xd-0LH" secondAttribute="bottom" constant="8" id="jEe-wQ-sC2"/>
+                            <constraint firstItem="RWL-eG-yco" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="r9f-Uj-deu"/>
+                            <constraint firstItem="hy3-Pi-Km4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="rM9-cy-x5N"/>
+                            <constraint firstItem="5Eu-Iy-Nb6" firstAttribute="top" secondItem="o57-BQ-k3G" secondAttribute="bottom" constant="16" id="rz6-Gu-GUa"/>
+                            <constraint firstItem="1Ng-c5-RCg" firstAttribute="top" secondItem="hy3-Pi-Km4" secondAttribute="bottom" constant="8" id="sUs-6x-4jf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="bmiLabel" destination="Xbb-LR-aLV" id="mhW-0a-pb8"/>
+                        <outlet property="bmiOutputLabel" destination="5Eu-Iy-Nb6" id="alt-P1-wQH"/>
+                        <outlet property="heightInputField" destination="RWL-eG-yco" id="eyH-cB-6Td"/>
+                        <outlet property="weightInputField" destination="1Ng-c5-RCg" id="1Xu-Lf-7aU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="118.29085457271366"/>
+        </scene>
+    </scenes>
+</document>
